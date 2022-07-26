@@ -8,15 +8,16 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    protected $guarded = [];
+    use Notifiable;
+    public $guarded = [];
     public $timestamps = false;
-    protected $keyType = 'string';
+    public $keyType = 'string';
 
-    public function promise(){
-        return $this->hasMany('App\Promise');
+    public function carts(){
+        return $this->hasMany('App\Cart');
     }
 
-    public function garden(){
-        return $this->hasMany('App\Garden');
+    public function history(){
+        return $this->hasMany('App\History');
     }
 }
