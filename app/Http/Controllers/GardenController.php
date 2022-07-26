@@ -18,6 +18,7 @@ class GardenController extends Controller
         $data['garden'] = Garden::all();
         return view('introduce',compact(['data']));
     }
+
     public function viewPage($id){
         $data = [];
         $data['garden'] = Garden::find($id);
@@ -37,6 +38,7 @@ class GardenController extends Controller
         $second = new DateTime($request['end_date']);
         return [$first->diff($second)];
     }
+
     public function promise(Request $request){
         $input = $request->only(['garden_id','start_date','end_date','people','price']);
         $input['user_id'] = auth()->user()->id;

@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 class NoticeController extends Controller
 {
     public function noticePage(){
-
         $data = [];
         $data['garden'] = Garden::all();
         $data['notice'] = Notice::all();

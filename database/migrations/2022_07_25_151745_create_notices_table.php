@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReviewNoticesTable extends Migration
+class CreateNoticesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateReviewNoticesTable extends Migration
      */
     public function up()
     {
-        Schema::create('review_notices', function (Blueprint $table) {
+        Schema::create('notices', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('user-id');
+            $table->text('contents');
+            $table->string('set')->nullable();
+            $table->string('title');
         });
     }
 
@@ -26,6 +29,6 @@ class CreateReviewNoticesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('review_notices');
+        Schema::dropIfExists('notices');
     }
 }
